@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+import defaultTheme from 'tailwindcss/defaultTheme'
+
+
 module.exports = {
   content: ["./app/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}", "./utils/**/*.{js,ts,jsx,tsx}"],
   plugins: [require("daisyui")],
@@ -74,12 +77,32 @@ module.exports = {
     ],
   },
   theme: {
+    fontSize: {
+      xs: ['0.75rem', { lineHeight: '1rem' }],
+      sm: ['0.875rem', { lineHeight: '1.5rem' }],
+      base: ['1rem', { lineHeight: '1.75rem' }],
+      lg: ['1.125rem', { lineHeight: '1.75rem' }],
+      xl: ['1.25rem', { lineHeight: '2rem' }],
+      '2xl': ['1.5rem', { lineHeight: '2.25rem' }],
+      '3xl': ['1.75rem', { lineHeight: '2.25rem' }],
+      '4xl': ['2rem', { lineHeight: '2.5rem' }],
+      '5xl': ['2.5rem', { lineHeight: '3rem' }],
+      '6xl': ['3rem', { lineHeight: '3.5rem' }],
+      '7xl': ['4rem', { lineHeight: '4.5rem' }],
+    },
     extend: {
       boxShadow: {
         center: "0 0 12px -2px rgb(0 0 0 / 0.05)",
       },
       animation: {
         "pulse-fast": "pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+      },
+      fontFamily: {
+        sans: ['Mona Sans', ...defaultTheme.fontFamily.sans],
+        display: [
+          ['Mona Sans', ...defaultTheme.fontFamily.sans],
+          { fontVariationSettings: '"wdth" 125' },
+        ],
       },
     },
   },

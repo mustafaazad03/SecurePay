@@ -1,3 +1,4 @@
+'use client';
 import { useCallback, useEffect, useState } from "react";
 import { useTargetNetwork } from "./useTargetNetwork";
 import { Address } from "viem";

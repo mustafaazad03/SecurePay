@@ -1,3 +1,4 @@
+'use client';
 import { useDarkMode } from "./useDarkMode";
 import { useTargetNetwork } from "./useTargetNetwork";
 import { ChainWithAttributes } from "~~/utils/scaffold-eth";

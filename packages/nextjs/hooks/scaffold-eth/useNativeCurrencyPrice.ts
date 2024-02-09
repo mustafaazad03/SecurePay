@@ -1,3 +1,4 @@
+'use client';
 import { useEffect, useState } from "react";
 import { useTargetNetwork } from "./useTargetNetwork";
 import { useInterval } from "usehooks-ts";
