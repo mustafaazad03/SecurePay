@@ -47,7 +47,7 @@ const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
     <html lang="en" className="h-full bg-neutral-950 text-base antialiased">
       <body className="flex min-h-full flex-col">
         <ScaffoldEthAppWithProviders>
-          <RootLayout>{children}</RootLayout>
+          {children}
         </ScaffoldEthAppWithProviders>
       </body>
     </html>
