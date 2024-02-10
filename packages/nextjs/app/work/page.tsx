@@ -1,23 +1,22 @@
-import { type Metadata } from 'next'
-import Image from 'next/image'
-import Link from 'next/link'
-
-import { Blockquote } from '~~/components/Landing/Blockquote'
-import { Border } from '~~/components/Landing/Border'
-import { Button } from '~~/components/Landing/Button'
-import { ContactSection } from '~~/components/Landing/ContactSection'
-import { Container } from '~~/components/Landing/Container'
-import { FadeIn, FadeInStagger } from '~~/components/Landing/FadeIn'
-import { PageIntro } from '~~/components/Landing/PageIntro'
-import { Testimonial } from '~~/components/Landing/Testimonial'
-import { formatDate } from '~~/lib/formatDate'
-import { type CaseStudy, type MDXEntry, loadCaseStudies } from '~~/lib/mdx'
-import logoMailSmirk from '../../images/clients/mail-smirk/logo-dark.svg'
+import logoMailSmirk from "../../images/clients/mail-smirk/logo-dark.svg";
+import { type Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { Blockquote } from "~~/components/Landing/Blockquote";
+import { Border } from "~~/components/Landing/Border";
+import { Button } from "~~/components/Landing/Button";
+import { ContactSection } from "~~/components/Landing/ContactSection";
+import { Container } from "~~/components/Landing/Container";
+import { FadeIn, FadeInStagger } from "~~/components/Landing/FadeIn";
+import { PageIntro } from "~~/components/Landing/PageIntro";
+import { Testimonial } from "~~/components/Landing/Testimonial";
+import { formatDate } from "~~/lib/formatDate";
+import { type CaseStudy, type MDXEntry, loadCaseStudies } from "~~/lib/mdx";
 
 function CaseStudies({
   caseStudies,
 }: {
-  caseStudies: Array<MDXEntry<CaseStudy>>
+  caseStudies: Array<MDXEntry<CaseStudy>>;
 }) {
   return (
     <Container className="mt-40">
@@ -86,17 +85,11 @@ function CaseStudies({
         ))}
       </div>
     </Container>
-  )
-}
-
-export const metadata: Metadata = {
-  title: 'Our Work',
-  description:
-    'We believe in efficiency and maximizing our resources to provide the best value to our clients.',
+  );
 }
 
 export default async function Work() {
-  let caseStudies = await loadCaseStudies()
+  let caseStudies = await loadCaseStudies();
 
   return (
     <>
@@ -115,12 +108,12 @@ export default async function Work() {
 
       <Testimonial
         className="mt-24 sm:mt-32 lg:mt-40"
-        client={{ name: 'Mail Smirk', logo: logoMailSmirk }}
+        client={{ name: "Mail Smirk", logo: logoMailSmirk }}
       >
         We approached <em>Studio</em> because we loved their past work. They
         delivered something remarkably similar in record time.
       </Testimonial>
       <ContactSection />
     </>
-  )
+  );
 }

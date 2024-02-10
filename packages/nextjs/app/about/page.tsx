@@ -1,16 +1,15 @@
-import { type Metadata } from 'next'
-import Image from 'next/image'
-
-import { ContactSection } from '~~/components/Landing/ContactSection'
-import { Container } from '~~/components/Landing/Container'
-import { FadeIn, FadeInStagger } from '~~/components/Landing/FadeIn'
-import { GridList, GridListItem } from '~~/components/Landing/GridList'
-import { PageIntro } from '~~/components/Landing/PageIntro'
-import { PageLinks } from '~~/components/Landing/PageLinks'
-import { SectionIntro } from '~~/components/Landing/SectionIntro'
-import { StatList, StatListItem } from '~~/components/Landing/StatList'
-import { loadArticles } from '~~/lib/mdx'
-import { Border } from '~~/components/Landing/Border'
+import { type Metadata } from "next";
+import Image from "next/image";
+import { Border } from "~~/components/Landing/Border";
+import { ContactSection } from "~~/components/Landing/ContactSection";
+import { Container } from "~~/components/Landing/Container";
+import { FadeIn, FadeInStagger } from "~~/components/Landing/FadeIn";
+import { GridList, GridListItem } from "~~/components/Landing/GridList";
+import { PageIntro } from "~~/components/Landing/PageIntro";
+import { PageLinks } from "~~/components/Landing/PageLinks";
+import { SectionIntro } from "~~/components/Landing/SectionIntro";
+import { StatList, StatListItem } from "~~/components/Landing/StatList";
+import { loadArticles } from "~~/lib/mdx";
 
 function Culture() {
   return (
@@ -41,17 +40,11 @@ function Culture() {
         </GridList>
       </Container>
     </div>
-  )
-}
-
-export const metadata: Metadata = {
-  title: 'About Us',
-  description:
-    'We believe that our strength lies in our collaborative approach, which puts our clients at the center of everything we do.',
+  );
 }
 
 export default async function About() {
-  let blogArticles = (await loadArticles()).slice(0, 2)
+  let blogArticles = (await loadArticles()).slice(0, 2);
 
   return (
     <>
@@ -94,5 +87,5 @@ export default async function About() {
 
       <ContactSection />
     </>
-  )
+  );
 }

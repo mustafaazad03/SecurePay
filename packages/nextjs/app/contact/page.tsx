@@ -1,20 +1,19 @@
-import { useId } from 'react'
-import { type Metadata } from 'next'
-import Link from 'next/link'
-
-import { Border } from '~~/components/Landing/Border'
-import { Button } from '~~/components/Landing/Button'
-import { Container } from '~~/components/Landing/Container'
-import { FadeIn } from '~~/components/Landing/FadeIn'
-import { Offices } from '~~/components/Landing/Offices'
-import { PageIntro } from '~~/components/Landing/PageIntro'
-import { SocialMedia } from '~~/components/Landing/SocialMedia'
+import { type Metadata } from "next";
+import Link from "next/link";
+import { useId } from "react";
+import { Border } from "~~/components/Landing/Border";
+import { Button } from "~~/components/Landing/Button";
+import { Container } from "~~/components/Landing/Container";
+import { FadeIn } from "~~/components/Landing/FadeIn";
+import { Offices } from "~~/components/Landing/Offices";
+import { PageIntro } from "~~/components/Landing/PageIntro";
+import { SocialMedia } from "~~/components/Landing/SocialMedia";
 
 function TextInput({
   label,
   ...props
-}: React.ComponentPropsWithoutRef<'input'> & { label: string }) {
-  let id = useId()
+}: React.ComponentPropsWithoutRef<"input"> & { label: string }) {
+  let id = useId();
 
   return (
     <div className="group relative z-0 transition-all focus-within:z-10">
@@ -32,13 +31,13 @@ function TextInput({
         {label}
       </label>
     </div>
-  )
+  );
 }
 
 function RadioInput({
   label,
   ...props
-}: React.ComponentPropsWithoutRef<'input'> & { label: string }) {
+}: React.ComponentPropsWithoutRef<"input"> & { label: string }) {
   return (
     <label className="flex gap-x-3">
       <input
@@ -48,7 +47,7 @@ function RadioInput({
       />
       <span className="text-base/6 text-neutral-950">{label}</span>
     </label>
-  )
+  );
 }
 
 function ContactForm() {
@@ -90,7 +89,7 @@ function ContactForm() {
         </Button>
       </form>
     </FadeIn>
-  )
+  );
 }
 
 function ContactDetails() {
@@ -112,8 +111,8 @@ function ContactDetails() {
         </h2>
         <dl className="mt-6 grid grid-cols-1 gap-8 text-sm sm:grid-cols-2">
           {[
-            ['Careers', 'careers@studioagency.com'],
-            ['Press', 'press@studioagency.com'],
+            ["Careers", "careers@studioagency.com"],
+            ["Press", "press@studioagency.com"],
           ].map(([label, email]) => (
             <div key={email}>
               <dt className="font-semibold text-neutral-950">{label}</dt>
@@ -137,12 +136,7 @@ function ContactDetails() {
         <SocialMedia className="mt-6" />
       </Border>
     </FadeIn>
-  )
-}
-
-export const metadata: Metadata = {
-  title: 'Contact Us',
-  description: 'Let’s work together. We can’t wait to hear from you.',
+  );
 }
 
 export default function Contact() {
@@ -159,5 +153,5 @@ export default function Contact() {
         </div>
       </Container>
     </>
-  )
+  );
 }

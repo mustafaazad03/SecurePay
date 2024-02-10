@@ -1,24 +1,43 @@
-import { type Metadata } from 'next'
-import Image from 'next/image'
-import Link from 'next/link'
+import logoPhobiaDark from "../images/clients/phobia/logo-dark.svg";
+import imageLaptop from "../images/laptop.jpg";
+import axios from "axios";
+import { type Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect } from "react";
+import { ContactSection } from "~~/components/Landing/ContactSection";
+import { Container } from "~~/components/Landing/Container";
+import { FadeIn, FadeInStagger } from "~~/components/Landing/FadeIn";
+import { List, ListItem } from "~~/components/Landing/List";
+import { SectionIntro } from "~~/components/Landing/SectionIntro";
+import { StylizedImage } from "~~/components/Landing/StylizedImage";
+import { Testimonial } from "~~/components/Landing/Testimonial";
+import { type CaseStudy, type MDXEntry, loadCaseStudies } from "~~/lib/mdx";
 
-import { ContactSection } from '~~/components/Landing/ContactSection'
-import { Container } from '~~/components/Landing/Container'
-import { FadeIn, FadeInStagger } from '~~/components/Landing/FadeIn'
-import { List, ListItem } from '~~/components/Landing/List'
-import { SectionIntro } from '~~/components/Landing/SectionIntro'
-import { StylizedImage } from '~~/components/Landing/StylizedImage'
-import { Testimonial } from '~~/components/Landing/Testimonial'
-import { type CaseStudy, type MDXEntry, loadCaseStudies } from '~~/lib/mdx'
-import imageLaptop from '../images/laptop.jpg'
-import logoPhobiaDark from '../images/clients/phobia/logo-dark.svg'
+const fetchData = async () => {
+  try {
+    const response = await axios.get(
+      "https://ap-south-1.aws.neurelo.com/rest/landing",
+      {
+        headers: {
+          "X-API-KEY":
+            "neurelo_9wKFBp874Z5xFw6ZCfvhXbVGOPndobULAat5eWrufAdS5dvvAaECPok79cLgzeiZxy0pun8NPOnBgicUzyuzHWarBNam7phbs3xwgi5k7XKHwC2naqhf5j5IiGam77QPFmEdioPqVBGOappPcha2QqO8zc1U5",
+        },
+      }
+    );
 
-
+    console.log(response.data);
+  } catch (error) {
+    console.error("Error fetching data: ", error);
+  }
+};
+fetchData();
+console.log(fetchData());
 
 function CaseStudies({
   caseStudies,
 }: {
-  caseStudies: Array<MDXEntry<CaseStudy>>
+  caseStudies: Array<MDXEntry<CaseStudy>>;
 }) {
   return (
     <>
@@ -50,10 +69,10 @@ function CaseStudies({
                 </h3>
                 <p className="mt-6 flex gap-x-2 text-sm text-neutral-950">
                   <time
-                    dateTime={caseStudy.date.split('-')[0]}
+                    dateTime={caseStudy.date.split("-")[0]}
                     className="font-semibold"
                   >
-                    {caseStudy.date.split('-')[0]}
+                    {caseStudy.date.split("-")[0]}
                   </time>
                   <span className="text-neutral-300" aria-hidden="true">
                     /
@@ -72,7 +91,7 @@ function CaseStudies({
         </FadeInStagger>
       </Container>
     </>
-  )
+  );
 }
 
 function Services() {
@@ -123,46 +142,49 @@ function Services() {
         </div>
       </Container>
     </>
-  )
+  );
 }
 
 export const metadata: Metadata = {
   description:
-    'We are a development studio working at the intersection of design and technology.',
-}
+    "We are a development studio working at the intersection of design and technology.",
+};
 
 export default async function Home() {
-  let caseStudies = (await loadCaseStudies()).slice(0, 3)
-
+  let caseStudies = (await loadCaseStudies()).slice(0, 3);
   return (
     <>
       <Container className="mt-24 sm:mt-32 md:mt-56">
         <FadeIn className="max-w-3xl">
           <h1 className="font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
-            Award-winning development studio based in Denmark.
+            Empower Your Finances with Decentralized Credit
           </h1>
           <p className="mt-6 text-xl text-neutral-600">
-            We are a development studio working at the intersection of design
-            and technology. It’s a really busy intersection though — a lot of
-            our staff have been involved in hit and runs.
+            Welcome to a new era of financial empowerment. Our Web3-based Fixed
+            Deposit Credit Card system combines the security of fixed deposits
+            with the flexibility of credit cards. Experience the power of
+            decentralized finance as you take control of your spending, all
+            while earning interest on your deposit. It’s not just a credit card,
+            it’s an investment in your future. Start your journey towards
+            financial freedom with us today
           </p>
         </FadeIn>
       </Container>
 
       <CaseStudies caseStudies={caseStudies} />
 
-      <Testimonial
+      {/* <Testimonial
         className="mt-24 sm:mt-32 lg:mt-40"
-        client={{ name: 'Phobia', logo: logoPhobiaDark }}
+        client={{ name: "Lorem", logo: logoPhobiaDark }}
       >
         The team at Studio went above and beyond with our onboarding, even
         finding a way to access the user’s microphone without triggering one of
         those annoying permission dialogs.
-      </Testimonial>
+      </Testimonial> */}
 
       <Services />
 
       <ContactSection />
     </>
-  )
+  );
 }
